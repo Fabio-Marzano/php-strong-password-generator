@@ -10,7 +10,11 @@
 
         $baseString = 'abcdefghijklmnopqrstuvwxyz'.strtoupper('abcdefghijklmnopqrstuvwxyz').'1234567890';
 
-        var_dump($baseString[11]);
+        var_dump(strlen($baseString));
+
+        $randomIndex =rand(0, count($baseString) - 1);
+
+        var_dump($baseString[$randomIndex]);
     }
 ?>
 
