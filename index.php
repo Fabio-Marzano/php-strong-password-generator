@@ -1,6 +1,16 @@
 <?php
-    if(isset($_GET['length']) && is_numeric($_GET['length']) && $_GET['length'] != ''){
-        var_dump(is_numeric($_GET['length']));
+    if(isset($_GET['length']) && $_GET['length'] != ''){
+        if(is_numeric($_GET['length'])) {
+            $message = "Inserisci un valore numerico";
+        }
+
+        if($_GET['length'] < 6) {
+            $message = "Inserire un valore numerico maggiore o uguale a 6. Rendi la tua password sicura";
+        }
+
+        $baseString = 'abcdefghijklmnopqrstuvwxyz'.strtoupper('abcdefghijklmnopqrstuvwxyz').'1234567890';
+
+        var_dump($baseString[11]);
     }
 ?>
 
