@@ -1,20 +1,29 @@
 <?php
+    //CONTROLLO CHE SIA STATA INSERITA LA FORM//
     if(isset($_GET['length']) && $_GET['length'] != ''){
+       //VERIFICO SE IL VALORE INSERITO E' NUMERICO//
         if(is_numeric($_GET['length'])) {
             $message = "Inserisci un valore numerico";
         }
-
+        //VERIFICO SE IL VALORE INSERITO E' INFERIORE A 6//
         if($_GET['length'] < 6) {
             $message = "Inserire un valore numerico maggiore o uguale a 6. Rendi la tua password sicura";
         }
-
+        //CREO LA STRINGA PER RECUPERARE I CARATTERI//
         $baseString = 'abcdefghijklmnopqrstuvwxyz'.strtoupper('abcdefghijklmnopqrstuvwxyz').'1234567890';
+        //DEFINISCO LA STRINGA PASSWORD//
+        $password = '';
 
+        while(strlen($password) < $_GET['length']){
+            //GENERO UN VALORE RANDOM COMPRESO TRA 0 E IL VALORE STRINGA//
+            $randomIndex =rand(0, strlen($baseString) - 1);
+
+            $password.= $baseString[$randomIndex];
+        }
         var_dump(strlen($baseString));
+        
 
-        $randomIndex =rand(0, count($baseString) - 1);
-
-        var_dump($baseString[$randomIndex]);
+        var_dump($password);
     }
 ?>
 
