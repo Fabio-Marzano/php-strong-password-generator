@@ -1,3 +1,9 @@
+<?php
+    if(isset($_GET['length']) && is_numeric($_GET['length']) && $_GET['length'] != ''){
+        var_dump(is_numeric($_GET['length']));
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +20,9 @@
                 <div class="form-container">
                     <form action ="./index.php" method="get">
                         <div class="row gy-3">
-                            <div class="col-4">
+                            <div class="col-12 col-md-6">
                                 <label for="" class="cntrol-label">Inserisci la lunghezza della password</label>
-                                <input type="number" name="length" id="length" class="form-control form-control-sm" placeholder="Lunghezza password">
+                                <input type="number" min="6" name="length" id="length" class="form-control form-control-sm" placeholder="Lunghezza password">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-sm btn-primary">Genera</button>
